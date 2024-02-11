@@ -3,11 +3,11 @@ workspace " Seagull"
     configurations { "Debug", "Release" } 
 
 project "Seagull"  
-    kind "ConsoleApp"   
+    kind "StaticLib"   
     location "Seagull"
     language "C++"   
-    targetdir "bin/%{cfg.buildcfg}" 
-    objdir "bin-int/%{cfg.buildcfg}"
+    targetdir "bin/Seagull/%{cfg.buildcfg}" 
+    objdir "bin-int/Seagull/%{cfg.buildcfg}"
 
     files { "Seagull/**.h", "Seagull/**.cpp" } 
 
@@ -22,7 +22,34 @@ project "Seagull"
 
     includedirs {"vendor/glwf/include",
         "src",
-        "vendor/glwf/include"}
+        "vendor/glwf/include",
+        "Seagull"}
+
+    filter "configurations:Debug"
+        defines { "DEBUG" }  
+        symbols "On" 
+
+    filter "configurations:Release"  
+        defines { "NDEBUG" }    
+        optimize "On" 
+
+        
+project "SandBox"  
+    kind "ConsoleApp"   
+    location "SandBox"
+    language "C++"   
+
+    targetdir "bin/SandBox/%{cfg.buildcfg}" 
+    objdir "bin-int/SandBox/%{cfg.buildcfg}"
+
+    files { "SandBox/**.h", "SandBox/**.cpp" } 
+
+    links { "Seagull",
+            "SandBox"}
+    
+    includedirs {
+        "src",
+        "Seagull"}
 
     filter "configurations:Debug"
         defines { "DEBUG" }  

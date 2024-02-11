@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="vendor">
-      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="vendor\glwf">
-      <UniqueIdentifier>{729179C1-DE46-F2B6-673B-EC8DD3EFE8BA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glwf\include">
-      <UniqueIdentifier>{E50A7280-516C-4F8E-DAD9-9540463A864D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glwf\include\GLFW">
-      <UniqueIdentifier>{445DF004-3082-3F85-59CD-241545513EA3}</UniqueIdentifier>
+    <Filter Include="src\SimpleShapes">
+      <UniqueIdentifier>{EA464F80-D63F-6ED2-FF71-5357EBC94DDE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\vendor\glwf\include\GLFW\glfw3.h">
-      <Filter>vendor\glwf\include\GLFW</Filter>
+    <ClInclude Include="Seagull.h" />
+    <ClInclude Include="src\RenderObject.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\vendor\glwf\include\GLFW\glfw3native.h">
-      <Filter>vendor\glwf\include\GLFW</Filter>
+    <ClInclude Include="src\Scene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneSettings.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SimpleShapes\Square.h">
+      <Filter>src\SimpleShapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seagull.cpp" />
+    <ClCompile Include="src\RenderObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SimpleShapes\Square.cpp">
+      <Filter>src\SimpleShapes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
