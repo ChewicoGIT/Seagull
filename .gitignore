@@ -65,7 +65,6 @@ ipch/
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -75,7 +74,6 @@ ipch/
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
