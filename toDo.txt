@@ -1,3 +1,4 @@
 - Set up Scene settings (title, dimensions, refesh color)
 - Draw a rectangle
 - Make a shader program
+- Resize Callback

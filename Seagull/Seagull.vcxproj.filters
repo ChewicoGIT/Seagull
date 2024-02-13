@@ -7,10 +7,13 @@
     <Filter Include="src\SimpleShapes">
       <UniqueIdentifier>{EA464F80-D63F-6ED2-FF71-5357EBC94DDE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{C55F2ECF-B12C-89DA-DA45-7782C671BE68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Seagull.h" />
-    <ClInclude Include="src\RenderObject.h">
+    <ClInclude Include="src\Graphics.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Scene.h">
@@ -22,10 +25,17 @@
     <ClInclude Include="src\SimpleShapes\Square.h">
       <Filter>src\SimpleShapes</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\RenderObject.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Shader.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seagull.cpp" />
-    <ClCompile Include="src\RenderObject.cpp">
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="src\Graphics.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene.cpp">
@@ -33,6 +43,12 @@
     </ClCompile>
     <ClCompile Include="src\SimpleShapes\Square.cpp">
       <Filter>src\SimpleShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\RenderObject.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Shader.cpp">
+      <Filter>src\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

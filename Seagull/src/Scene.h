@@ -1,7 +1,9 @@
 #pragma once
-#include <GLFW/glfw3.h>
+#include "src/core/Shader.h"
+typedef struct GLFWwindow GLFWwindow;
 
 namespace SG {
+
 	class Scene
 	{
 	public:
@@ -17,8 +19,8 @@ namespace SG {
 	private :
 
 		static GLFWwindow* window;
+		
 		int InitGL();
-
 
 	};
 }

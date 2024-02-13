@@ -56,7 +56,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src;..\vendor\glwf\include;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src;..\vendor\glwf\include;..\vendor\glad\include;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -75,7 +75,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src;..\vendor\glwf\include;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src;..\vendor\glwf\include;..\vendor\glad\include;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -95,16 +95,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Seagull.h" />
-    <ClInclude Include="src\RenderObject.h" />
+    <ClInclude Include="src\Graphics.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\SceneSettings.h" />
     <ClInclude Include="src\SimpleShapes\Square.h" />
+    <ClInclude Include="src\core\RenderObject.h" />
+    <ClInclude Include="src\core\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seagull.cpp" />
-    <ClCompile Include="src\RenderObject.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="src\Graphics.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SimpleShapes\Square.cpp" />
+    <ClCompile Include="src\core\RenderObject.cpp" />
+    <ClCompile Include="src\core\Shader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

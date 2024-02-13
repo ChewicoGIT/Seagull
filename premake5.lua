@@ -9,7 +9,7 @@ project "Seagull"
     targetdir "bin/Seagull/%{cfg.buildcfg}" 
     objdir "bin-int/Seagull/%{cfg.buildcfg}"
 
-    files { "Seagull/**.h", "Seagull/**.cpp" } 
+    files { "Seagull/**.h", "Seagull/**.cpp", "Seagull/**.c" } 
 
     links {"glfw3.lib",
         "opengl32.lib",
@@ -23,6 +23,7 @@ project "Seagull"
     includedirs {"vendor/glwf/include",
         "src",
         "vendor/glwf/include",
+        "vendor/glad/include",
         "Seagull"}
 
     filter "configurations:Debug"
@@ -57,4 +58,5 @@ project "SandBox"
 
     filter "configurations:Release"  
         defines { "NDEBUG" }    
-        optimize "On" 
+        optimize "On"
+    

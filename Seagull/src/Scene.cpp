@@ -2,6 +2,13 @@
 #include "Scene.h"
 #include <iostream>
 
+#include <GLAD/glad.h>
+#include <GLFW/glfw3.h>
+
+#include "src/Graphics.h"
+
+GLFWwindow* SG::Scene::window;
+
 int SG::Scene::Run() {
 
     int initGlResult = InitGL();
@@ -28,7 +35,12 @@ int SG::Scene::InitGL() {
     if (!glfwInit())
         return -1;
 
-    window = glfwCreateWindow(640, 480, "Seagull", NULL, NULL);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    window = glfwCreateWindow(800, 600, "Seagull", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -36,6 +48,17 @@ int SG::Scene::InitGL() {
     }
     glfwMakeContextCurrent(window);
 
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
+
+    glClearColor(0.01f, 0.12f, 0.18f, 1.0f);
+    glViewport(0, 0, 800, 600);
+
+    SG::Graphics::Initialize();
+    
     return 0;
 
 }
