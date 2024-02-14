@@ -51,6 +51,9 @@ project "SandBox"
     includedirs {
         "src",
         "Seagull"}
+    
+    debugdir "bin/SandBox/%{cfg.buildcfg}" 
+    postbuildcommands { "{COPYDIR} %{wks.location}/shaders %{wks.location}/bin/SandBox/%{cfg.buildcfg}/shaders"}
 
     filter "configurations:Debug"
         defines { "DEBUG" }  

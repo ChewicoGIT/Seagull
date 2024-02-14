@@ -25,6 +25,9 @@
     <ClInclude Include="src\SimpleShapes\Square.h">
       <Filter>src\SimpleShapes</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\ErrorHandle.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
     <ClInclude Include="src\core\RenderObject.h">
       <Filter>src\core</Filter>
     </ClInclude>

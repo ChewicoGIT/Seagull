@@ -11,7 +11,7 @@ class MainScene : public SG::Scene
 	}
 
 	void OnRender() override {
-
+		SG::Graphics::DrawSquare();
 	}
 
 };

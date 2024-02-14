@@ -9,7 +9,6 @@ namespace SG {
 
 	private:
 		unsigned int VBO;
-		unsigned int VAO;
 
 	};
 }

@@ -1,11 +1,15 @@
 #pragma once
+
 namespace SG {
+
+	class Graphics;
+
 	class RenderObject
 	{
-
 	protected:
-		virtual void Draw();
+		unsigned int VAO;
 
+		friend Graphics;
 	};
 }
 

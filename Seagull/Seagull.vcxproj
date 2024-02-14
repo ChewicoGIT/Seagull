@@ -99,6 +99,7 @@
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\SceneSettings.h" />
     <ClInclude Include="src\SimpleShapes\Square.h" />
+    <ClInclude Include="src\core\ErrorHandle.h" />
     <ClInclude Include="src\core\RenderObject.h" />
     <ClInclude Include="src\core\Shader.h" />
   </ItemGroup>

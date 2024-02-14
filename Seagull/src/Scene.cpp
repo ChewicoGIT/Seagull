@@ -21,6 +21,8 @@ int SG::Scene::Run() {
     {
         glClear(GL_COLOR_BUFFER_BIT);
 
+        OnRender();
+
         glfwSwapBuffers(window);
 
         glfwPollEvents();
@@ -53,9 +55,10 @@ int SG::Scene::InitGL() {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
+    
+    glViewport(0, 0, 800, 600);
 
     glClearColor(0.01f, 0.12f, 0.18f, 1.0f);
-    glViewport(0, 0, 800, 600);
 
     SG::Graphics::Initialize();
     
