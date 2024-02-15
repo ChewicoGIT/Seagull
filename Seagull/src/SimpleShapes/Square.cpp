@@ -3,16 +3,16 @@
 #include "GLFW/glfw3.h"
 
 signed char squareVertexData[]{
-	-1, -1,
-	 1, -1,
-	-1,  1
+	0, 0, 0,
+	 1, 0, 0,
+	0,  1, 0,
+	1,  1, 0
 };
 
-float vertices[] = {
-	-0.5f, -0.5f, 0.0f,
-	 0.5f, -0.5f, 0.0f,
-	 0.0f,  0.5f, 0.0f
+char indices[]{
+	0, 2, 1, 1, 2, 3
 };
+
 
 SG::Square::Square() {
 	glGenVertexArrays(1, &VAO);
@@ -20,11 +20,9 @@ SG::Square::Square() {
 
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(squareVertexData), squareVertexData, GL_STATIC_DRAW);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(squareVertexData), squareVertexData, GL_STATIC_DRAW);
 
-	//glVertexAttribIPointer(0, 2, GL_BYTE, 2, (void*)0);
-	glVertexAttribPointer(0, 3, GL_FLOAT,GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_BYTE, GL_FALSE,3 * sizeof(signed char), (void*)0);
 	glEnableVertexAttribArray(0); 
 
 

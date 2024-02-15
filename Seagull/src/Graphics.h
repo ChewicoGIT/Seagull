@@ -4,19 +4,21 @@
 
 namespace SG {
 
+	class Scene;
 	class RenderObject;
 
 	class Graphics
 	{
 	public:
-		static void Initialize();
 		static void DrawObject(RenderObject* object);
 		static void DrawSquare() { DrawObject(square); }
 
 	private:
+		static void Initialize();
 		static Shader* basicShader;
 		static Square* square;
-		static bool initialized;
+
+		friend Scene;
 
 	};
 
