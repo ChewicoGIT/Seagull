@@ -7,6 +7,10 @@
 
 #include "src/Graphics.h"
 
+#include <chrono>
+#include <thread> 
+
+using namespace std::chrono;
 GLFWwindow* SG::Scene::window;
 
 int SG::Scene::Run() {
@@ -17,15 +21,39 @@ int SG::Scene::Run() {
 
 	Init();
 
+    const double targetFrameDuration = 1.0 / 60.0;
+    steady_clock::time_point lastFrameTime = steady_clock::now();
+    double deltaTime = 0.0;
+
     while (!glfwWindowShouldClose(window))
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        // Calculate time elapsed since last frame
+        steady_clock::time_point currentFrameTime = steady_clock::now();
+        duration<double> timeElapsed = duration_cast<duration<double>>(currentFrameTime - lastFrameTime);
+        deltaTime += timeElapsed.count();
+        lastFrameTime = currentFrameTime;
 
-        OnRender();
+        // Render only if enough time has passed
+        if (deltaTime >= targetFrameDuration)
+        {
+            glClear(GL_COLOR_BUFFER_BIT);
+            SG::Graphics::PreRender();
 
-        glfwSwapBuffers(window);
+            OnRender();
 
-        glfwPollEvents();
+            glfwSwapBuffers(window);
+
+            // Reset delta time for next frame
+            deltaTime -= targetFrameDuration;
+
+            Graphics::frameCount++;
+            glfwPollEvents();
+        }
+        else
+        {
+            // Sleep to cap frame rate
+            std::this_thread::sleep_for(milliseconds(1));
+        }
     }
 
     glfwTerminate();
@@ -37,14 +65,15 @@ int SG::Scene::InitGL() {
     if (!glfwInit())
         return -1;
 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     window = glfwCreateWindow(800, 600, "Seagull", NULL, NULL);
     if (!window)
     {
+        std::cout << "Error at creating window";
         glfwTerminate();
         return -1;
     }
@@ -55,13 +84,29 @@ int SG::Scene::InitGL() {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
-    
+
+    Graphics::screenWidth = 800;
+    Graphics::screenHeight = 600;
     glViewport(0, 0, 800, 600);
+    glfwSetFramebufferSizeCallback(window, &framebuffer_size_callback);
 
     glClearColor(0.01f, 0.12f, 0.18f, 1.0f);
 
     SG::Graphics::Initialize();
+
+    SG::Graphics::SetDimensions(1, 1, 0, 0);
+    SG::Graphics::SetCamera(8, 0, 0);
+
+    glfwWindowHint(GLFW_SAMPLES, 4);
+    glEnable(GL_MULTISAMPLE);
     
     return 0;
 
+}
+
+void SG::Scene::framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    Graphics::screenWidth = width;
+    Graphics::screenHeight = height;
+    glViewport(0, 0, width, height);
 }

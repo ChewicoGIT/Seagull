@@ -8,6 +8,7 @@ namespace SG {
 	{
 	protected:
 		unsigned int VAO;
+		unsigned int IBO;
 
 		friend Graphics;
 	};

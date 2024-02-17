@@ -9,6 +9,7 @@ namespace SG {
 	public:
 		Shader();
 		~Shader();
+
 	private:
 		unsigned int shaderProgram;
 		void Use();

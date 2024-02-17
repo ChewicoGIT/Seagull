@@ -24,6 +24,7 @@ project "Seagull"
         "src",
         "vendor/glwf/include",
         "vendor/glad/include",
+        "vendor/glm",
         "Seagull"}
 
     filter "configurations:Debug"

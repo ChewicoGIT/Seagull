@@ -9,6 +9,7 @@ namespace SG {
 	public:
 		int Run();
 
+
 	protected:
 
 		virtual void Init() { }
@@ -17,7 +18,7 @@ namespace SG {
 		virtual void OnUpdate() { }
 
 	private :
-
+		static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 		static GLFWwindow* window;
 		
 		int InitGL();
