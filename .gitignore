@@ -9,6 +9,9 @@
 .vs/
 
 # Files built by Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.*
 *_i.c
 *_p.c
 *_h.h
@@ -76,7 +79,6 @@ ipch/
 *.a
 
 # Executables
-*.exe
 *.out
 *.app
 
