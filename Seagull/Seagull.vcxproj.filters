@@ -34,9 +34,10 @@
     <ClInclude Include="src\core\Shader.h">
       <Filter>src\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Dimension.h" />
+    <ClInclude Include="src\Input.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Seagull.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="src\Graphics.cpp">
       <Filter>src</Filter>
@@ -53,5 +54,6 @@
     <ClCompile Include="src\core\Shader.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Input.cpp" />
   </ItemGroup>
 </Project>

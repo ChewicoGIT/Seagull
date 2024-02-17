@@ -1,6 +1,7 @@
 #pragma once
 #include "src/core/Shader.h"
 #include "src/SimpleShapes/Square.h"
+#include "src/Dimension.h"
 
 namespace SG {
 
@@ -9,18 +10,11 @@ namespace SG {
 
 	class Graphics
 	{
-	public:
-		static void DrawObject(RenderObject* object);
-		static void DrawSquare() { DrawObject(square); }
-		static void SetColor(float r, float g, float b, float a);
-		static void SetDimensions(float sizeX, float sizeY, float posX, float posY);
-		static void SetCamera(float height, float xCenter, float yCenter);
-
-		static float GetScreenWidth() { return screenWidth; }
-		static float GetScreenHeight() { return screenHeight; }
-		static int GetFrame() { return frameCount; }
 
 	private:
+
+		static inline void SetDimensions(float sizeX, float sizeY, float posX, float posY);
+
 		static void Initialize();
 		static void PreRender();
 		static Shader* basicShader;
@@ -32,6 +26,21 @@ namespace SG {
 		static int frameCount;
 
 		friend Scene;
+
+	public:
+		static void DrawObject(RenderObject* object, Dimension* dimension);
+		static void DrawSquare(Dimension* dimension) { DrawObject(square, dimension); }
+		static void DrawInfiniteGrid(float thickness, float spacing);
+		static void SetColor(float r, float g, float b, float a);
+		static void SetCamera(float height, float xCenter, float yCenter);
+
+		static inline float GetScreenWidth() { return screenWidth; }
+		static inline float GetScreenHeight() { return screenHeight; }
+		static inline int GetFrame() { return frameCount; }
+		static inline float GetCameraHeight() { return height; }
+		static inline float GetCameraXCenter() { return xCenter; }
+		static inline float GetCameraYCenter() { return yCenter; }
+
 
 	};
 

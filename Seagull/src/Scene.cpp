@@ -90,15 +90,18 @@ int SG::Scene::InitGL() {
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, &framebuffer_size_callback);
 
-    glClearColor(0.01f, 0.12f, 0.18f, 1.0f);
+    glClearColor(0.01f, 0.04f, 0.08f, 1.0f);
 
     SG::Graphics::Initialize();
 
     SG::Graphics::SetDimensions(1, 1, 0, 0);
     SG::Graphics::SetCamera(8, 0, 0);
 
-    glfwWindowHint(GLFW_SAMPLES, 4);
+    glfwWindowHint(GLFW_SAMPLES, 8);
     glEnable(GL_MULTISAMPLE);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     return 0;
 

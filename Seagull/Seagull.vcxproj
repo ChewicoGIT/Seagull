@@ -94,7 +94,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Input.h" />
     <ClInclude Include="Seagull.h" />
+    <ClInclude Include="src\Dimension.h" />
     <ClInclude Include="src\Graphics.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\SceneSettings.h" />
@@ -104,8 +106,8 @@
     <ClInclude Include="src\core\Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Seagull.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Graphics.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SimpleShapes\Square.cpp" />

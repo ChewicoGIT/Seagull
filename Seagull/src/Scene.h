@@ -3,7 +3,8 @@
 typedef struct GLFWwindow GLFWwindow;
 
 namespace SG {
-
+	
+	class Input;
 	class Scene
 	{
 	public:
@@ -22,6 +23,7 @@ namespace SG {
 		static GLFWwindow* window;
 		
 		int InitGL();
+		friend Input;
 
 	};
 }
