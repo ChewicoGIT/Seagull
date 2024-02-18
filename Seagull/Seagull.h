@@ -6,3 +6,4 @@
 #include "src/Graphics.h"
 #include "src/Dimension.h"
 #include "src/Input.h"
+#include "src/Interaction.h"

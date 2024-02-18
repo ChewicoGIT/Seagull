@@ -1,6 +1,7 @@
 #pragma once
 #include "src/core/Shader.h"
 #include "src/SimpleShapes/Square.h"
+#include "src/SimpleShapes/Triangle.h"
 #include "src/Dimension.h"
 
 namespace SG {
@@ -19,6 +20,7 @@ namespace SG {
 		static void PreRender();
 		static Shader* basicShader;
 		static Square* square;
+		static Triangle* triangle;
 
 		static int screenWidth, screenHeight;
 		static float xCenter, yCenter;
@@ -30,6 +32,8 @@ namespace SG {
 	public:
 		static void DrawObject(RenderObject* object, Dimension* dimension);
 		static void DrawSquare(Dimension* dimension) { DrawObject(square, dimension); }
+		static void DrawTriangle(Dimension* dimension) { DrawObject(triangle, dimension); }
+
 		static void DrawInfiniteGrid(float thickness, float spacing);
 		static void SetColor(float r, float g, float b, float a);
 		static void SetCamera(float height, float xCenter, float yCenter);

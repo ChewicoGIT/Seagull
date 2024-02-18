@@ -4,6 +4,7 @@ namespace SG {
 	{
 	public:
 		static void GetCursorPositionOnSpace(float* xPosition, float* yPosition);
+		static bool GetMouseButton();
 
 	};
 

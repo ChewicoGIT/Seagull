@@ -113,10 +113,6 @@
       <Project>{721B90EB-DEFA-0E87-E712-9A5D537175E8}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\shaders\basicFragment.glsl" />
-    <None Include="..\shaders\basicVertex.glsl" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

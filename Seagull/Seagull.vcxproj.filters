@@ -13,7 +13,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Seagull.h" />
+    <ClInclude Include="src\Dimension.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Graphics.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Scene.h">
@@ -34,12 +40,15 @@
     <ClInclude Include="src\core\Shader.h">
       <Filter>src\core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Dimension.h" />
-    <ClInclude Include="src\Input.h" />
+    <ClInclude Include="src\Interaction.h" />
+    <ClInclude Include="src\SimpleShapes\Triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="src\Graphics.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene.cpp">
@@ -54,6 +63,7 @@
     <ClCompile Include="src\core\Shader.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input.cpp" />
+    <ClCompile Include="src\Interaction.cpp" />
+    <ClCompile Include="src\SimpleShapes\Triangle.cpp" />
   </ItemGroup>
 </Project>

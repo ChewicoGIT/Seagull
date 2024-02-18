@@ -10,6 +10,7 @@
 
 SG::Shader* SG::Graphics::basicShader;
 SG::Square* SG::Graphics::square;
+SG::Triangle* SG::Graphics::triangle;
 
 int SG::Graphics::screenWidth;
 int SG::Graphics::screenHeight;
@@ -23,6 +24,7 @@ void SG::Graphics::Initialize()
 	
 	basicShader = new Shader();
 	square = new Square();
+	triangle = new Triangle();
 
 }
 

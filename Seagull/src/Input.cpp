@@ -24,3 +24,11 @@ void SG::Input::GetCursorPositionOnSpace(float* xPosition, float* yPosition)
 	*yPosition = ypos;
 
 }
+
+bool SG::Input::GetMouseButton()
+{
+	int state = glfwGetMouseButton(Scene::window, GLFW_MOUSE_BUTTON_LEFT);
+	if (state == GLFW_PRESS)
+		return true;
+	return false;
+}
