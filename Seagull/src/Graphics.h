@@ -14,8 +14,6 @@ namespace SG {
 
 	private:
 
-		static inline void SetDimensions(float sizeX, float sizeY, float posX, float posY);
-
 		static void Initialize();
 		static void PreRender();
 		static Shader* basicShader;

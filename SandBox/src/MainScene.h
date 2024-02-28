@@ -26,19 +26,19 @@ class MainScene : public SG::Scene
 		SG::Graphics::DrawInfiniteGrid(1, 5.0f);
 
 		SG::Graphics::SetColor(0.2f, 0.4f, 0.8f, 1.0f);
-		SG::Dimension dim{
-			1.0f, 1.0f, positionX - 2, -5.0f
-		};
+		SG::Dimension dim;
+
+		dim.rotation += positionX;
 
 		float xPosition, yPosition;
 		if (SG::Interaction::UserCameraPosition(&xPosition, &yPosition)) {
-			SG::Graphics::SetCamera(10, xPosition, yPosition);
+			//SG::Graphics::SetCamera(10, xPosition, yPosition);
 		}
 
-
-		//std::cout << x << " - " << y << "\n";
-
-		SG::Graphics::DrawTriangle(&dim);
+		SG::Graphics::SetColor(0.2f, 0.4f, 0.8f, 1.0f);
+		if (SG::Interaction::MouseTriggerArea(&dim))
+			SG::Graphics::SetColor(0.6f, 0.8f, 0.9f, 1.0f);
+		SG::Graphics::DrawSquare(&dim);
 	}
 
 };

@@ -94,7 +94,6 @@ int SG::Scene::InitGL() {
 
     SG::Graphics::Initialize();
 
-    SG::Graphics::SetDimensions(1, 1, 0, 0);
     SG::Graphics::SetCamera(8, 0, 0);
 
     glfwWindowHint(GLFW_SAMPLES, 8);

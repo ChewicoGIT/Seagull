@@ -31,7 +31,14 @@ void SG::Graphics::Initialize()
 void SG::Graphics::DrawObject(RenderObject* object, Dimension* dimension)
 {
 	basicShader->Use();
-	SetDimensions(dimension->sizeX, dimension->sizeY, dimension->positionX, dimension->positionY);
+	glm::mat4 transformation;
+	
+	transformation = glm::scale(glm::mat4(1.0f), glm::vec3(dimension->sizeX, dimension->sizeY, 1.0f));
+
+	transformation = glm::rotate(glm::mat4(1.0f), dimension->rotation, glm::vec3(0, 0, 1.0f)) * transformation;
+	transformation = glm::translate(glm::mat4(1.0f), glm::vec3(dimension->positionX, dimension->positionY, 0.0f)) * transformation;
+
+	glUniformMatrix4fv(11, 1, GL_FALSE, glm::value_ptr(transformation));
 
 	glBindVertexArray(object->VAO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, object->IBO);
@@ -71,16 +78,6 @@ void SG::Graphics::PreRender() {
 		yCenter + height / 2.0f,
 		-1.0f, 1.0f);
 	glUniformMatrix4fv(12, 1, GL_FALSE, glm::value_ptr(CamMat));
-
-}
-
-void SG::Graphics::SetDimensions(float sizeX, float sizeY, float posX, float posY) {
-	glm::mat4 dimension(1.0f);
-	dimension = glm::scale(glm::mat4(1.0f), glm::vec3(sizeX, sizeY, 1.0f)) * dimension;
-	dimension = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, 0.0f)) * dimension;
-
-	basicShader->Use();
-	glUniformMatrix4fv(11, 1, GL_FALSE, glm::value_ptr(dimension));
 
 }
 
