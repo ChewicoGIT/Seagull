@@ -8,14 +8,14 @@ project "SeagullCore"
    files { "src/**.h", "src/**.cpp", "Include/**.h" }
    
    links {
-   "VoxelStream"
+		"VoxelStream"
    }
 
    includedirs
    {
       "src",
 	  "Include",
-	  "VoxelStream/VoxelStream/Include"
+	  "../VoxelStream/VoxelStream/Include"
    }
 
    targetdir ("../lib/%{cfg.buildcfg}")
